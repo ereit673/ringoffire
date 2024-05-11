@@ -1,0 +1,17 @@
+<div class="field">
+    <div class="card-stack">
+        @for(card of [0,1,2,3,4]; track i; let i = $index){
+        <img [ngStyle]="{'right.px': i * 5}" src="./assets/img/cards/card_cover.png" alt="">
+        }
+        <img (click)="drawCard()" class="top-card" style="right: 25px" src="./assets/img/cards/card_cover.png" alt="">
+
+
+
+        @for (card of game.playedCards; track i; let i = $index) {
+        <img src="./assets/img/cards/{{ card }}.png" class="played-card" alt="">
+        }
+        @if(drawCardAnimation){
+        <img class="draw-card" style="right: 25px" src="./assets/img/cards/{{ currentCard }}.png" alt="">
+        }
+    </div>
+</div>
