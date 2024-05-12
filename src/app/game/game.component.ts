@@ -7,11 +7,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+import { GameInfoComponent } from '../game-info/game-info.component';
+
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [CommonModule, PlayerComponent, MatButtonModule, MatIconModule, MatDialogModule],
+  imports: [CommonModule, PlayerComponent, MatButtonModule, MatIconModule, MatDialogModule, GameInfoComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
 })
@@ -19,6 +21,7 @@ export class GameComponent {
 
   game = inject(GameService);
   currentCard: string | undefined = '';
+  
   drawCardAnimation = false;
 
   constructor(public dialog: MatDialog) { }
@@ -37,6 +40,7 @@ export class GameComponent {
     if (!this.drawCardAnimation) {
       this.drawCardAnimation = true;
       this.currentCard = this.game.stack.pop();
+      
 
       console.log('New Card:', this.currentCard);
       console.log(this.game);
@@ -56,7 +60,6 @@ export class GameComponent {
       this.game.players.push(name);
     });
   }
-
 
 }
 
