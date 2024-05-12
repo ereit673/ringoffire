@@ -21,7 +21,7 @@ export class GameComponent {
 
   game = inject(GameService);
   currentCard: string | undefined = '';
-  
+
   drawCardAnimation = false;
 
   constructor(public dialog: MatDialog) { }
@@ -40,14 +40,17 @@ export class GameComponent {
     if (!this.drawCardAnimation) {
       this.drawCardAnimation = true;
       this.currentCard = this.game.stack.pop();
-      
 
-      console.log('New Card:', this.currentCard);
-      console.log(this.game);
+      this.game.currentPlayer++;
+      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
+
+
+      console.log(this.game.currentPlayer);
     }
     setTimeout(() => {
       if (this.currentCard != undefined) {
         this.game.playedCards.push(this.currentCard);
+
       }
       this.drawCardAnimation = false;
     }, 1000)
