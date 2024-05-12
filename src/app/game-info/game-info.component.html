@@ -1,7 +1,7 @@
 <mat-card>
-    <mat-card-header>{{ title }}</mat-card-header>
+    <mat-card-title>{{ card ? title : 'Please pick a card' }}</mat-card-title>
 
     <mat-card-content>
-        {{ description }}
+        {{ card ? description : 'Click on the card stack to select the next card.' }}
     </mat-card-content>
 </mat-card>
