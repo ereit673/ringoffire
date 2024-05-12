@@ -3,7 +3,7 @@
     align-items: center;
     width: 300px;
 
-    background-color: orange;
+    background-color: grey;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
 
@@ -14,9 +14,13 @@
     }
 
     img{
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 70px;
         object-fit: cover;
         border-radius: 100%;
     }
+}
+
+.player-active{
+    background-color: greenyellow !important;
 }
