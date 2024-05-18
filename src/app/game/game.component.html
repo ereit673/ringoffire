@@ -25,13 +25,13 @@ class="player-position"
         }
 
         <!-- Current card animation -->
-        @if(drawCardAnimation){
-        <img class="draw-card" style="right: 25px" src="./assets/img/cards/{{ currentCard }}.png" alt="">
+        @if(game.drawCardAnimation){
+        <img class="draw-card" style="right: 25px" src="./assets/img/cards/{{ game.currentCard }}.png" alt="">
         }
     </div>
 </div>
 
-<app-game-info [card]="currentCard" class="info-box"></app-game-info>
+<app-game-info [card]="game.currentCard" class="info-box"></app-game-info>
 
 <button (click)="openDialog()" mat-fab color="primary" aria-label="Example icon button with a delete icon" class="btn-add">
     <mat-icon>add</mat-icon>

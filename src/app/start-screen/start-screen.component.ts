@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
+import { GameService } from '../models/game.service';
+import { Firestore, addDoc, collection } from '@angular/fire/firestore';
 
 
 @Component({
@@ -11,10 +13,16 @@ import { RouterLink } from '@angular/router';
 })
 export class StartScreenComponent {
 
-constructor(){
+  constructor(private router: Router, private firestore: Firestore) {
 
-}
-newGame(){
+  }
 
-}
+  async newGame() {
+    let game = new GameService();
+
+    await addDoc(collection(this.firestore, "games"), game.toJson()
+    ).then((gameInfo) => {
+      this.router.navigateByUrl('/game/' + gameInfo.id);
+    });
+  }
 }
