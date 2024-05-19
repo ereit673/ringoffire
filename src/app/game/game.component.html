@@ -1,14 +1,16 @@
-
-
-
 @for(player of game.players; track i; let i = $index){
-<app-player 
-[playerActive]="game.currentPlayer == i"
-[playerName]=game.players[i] 
-class="player-position" 
-[ngStyle]="{'top.px': 130 + (i * 100) }">
+<app-player [playerActive]="game.currentPlayer == i" [playerName]=game.players[i] class="player-position hide-mobile"
+    [ngStyle]="{'top.px': 130 + (i * 100) }">
 </app-player>
 }
+
+
+<div class="scroll-container hide-desktop">
+    @for(player of game.players; track i; let i = $index){
+    <app-player-mobile [playerActive]="game.currentPlayer == i" [playerName]=game.players[i]>
+    </app-player-mobile>
+    }
+</div>
 
 <div class="field">
     <div class="card-stack">
@@ -33,6 +35,7 @@ class="player-position"
 
 <app-game-info [card]="game.currentCard" class="info-box"></app-game-info>
 
-<button (click)="openDialog()" mat-fab color="primary" aria-label="Example icon button with a delete icon" class="btn-add">
+<button (click)="openDialog()" mat-fab color="primary" aria-label="Example icon button with a delete icon"
+    class="btn-add">
     <mat-icon>add</mat-icon>
 </button>

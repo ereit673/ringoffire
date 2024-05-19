@@ -11,12 +11,13 @@ import { GameInfoComponent } from '../game-info/game-info.component';
 import { Firestore, collection, collectionData, addDoc, doc, getDoc, docData, updateDoc } from '@angular/fire/firestore';
 import { Observable, Subscription, single } from 'rxjs';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { PlayerMobileComponent } from '../player-mobile/player-mobile.component';
 
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [CommonModule, PlayerComponent, MatButtonModule, MatIconModule, MatDialogModule, GameInfoComponent],
+  imports: [CommonModule, PlayerComponent, PlayerMobileComponent, MatButtonModule, MatIconModule, MatDialogModule, GameInfoComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
 })
